@@ -1,7 +1,15 @@
+using Bookify.Data;
+using Bookify.Repos;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<BookifyDbContex>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbString")));
+
+builder.Services.AddScoped<IGenresService, GenresService>();
 
 var app = builder.Build();
 
