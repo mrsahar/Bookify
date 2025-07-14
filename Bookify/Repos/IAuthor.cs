@@ -1,6 +1,6 @@
 ﻿namespace Bookify.Repos
 {
-    public interface IAuther
+    public interface IAuthor
     {
     }
 }

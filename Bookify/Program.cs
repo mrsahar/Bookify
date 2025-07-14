@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookifyDbContex>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbString")));
 
 builder.Services.AddScoped<IGenresService, GenresService>();
+builder.Services.AddScoped<IAuthor, AuthorService>();
 
 var app = builder.Build();
 

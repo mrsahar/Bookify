@@ -1,6 +1,6 @@
 ﻿namespace Bookify.Repos
 {
-    public class AuthorService
+    public class AuthorService : IAuthor
     {
     }
 }
