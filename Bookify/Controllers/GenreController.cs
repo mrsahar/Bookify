@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Bookify.Models.Entity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookify.Controllers
 {
@@ -10,6 +11,11 @@ namespace Bookify.Controllers
         }
 
         public IActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(Genre model)
         {
             return View();
         }
