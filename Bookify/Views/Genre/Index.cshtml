@@ -1,5 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<Bookify.Models.Entity.Genre>
 @{
+    ViewData["Title"] = "Genre";
 }
+
+<!--  Header End -->
+<div class="body-wrapper-inner">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Genre</h5>
+                <div class="mb-3">
+                    <a asp-for="Genre" asp-action="Add" class="btn btn-primary mt-2">
+                        <i class="ti ti-mood-smile"></i> Add Genre
+                    </a>
+                </div>
+                <table class="table text-nowrap mb-0 align-middle">   
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@item.Name</td>
+                                <td class="text-center">
+                                    <a asp-action="Update" asp-route-id="@item.GenreID" class="btn btn-sm btn-primary me-1">
+                                        <i class="ti ti-edit"></i>
+                                    </a>
+                                    <a asp-action="Delete" class="btn btn-sm btn-danger" asp-route-id="@item.GenreID">
+                                        <i class="ti ti-trash-x"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table> 
+            </div>
+        </div>
+        @if( @TempData["msg"] is not null){
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["msg"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        }
+    </div>
+</div>

@@ -1,5 +1,33 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Bookify.Models.Entity.Genre
+
 @{
+    ViewData["Title"] = !string.IsNullOrEmpty(Model?.Name) ? $"{Model.Name} Edit" : "Edit Genre";
 }
+
+
+<div class="body-wrapper-inner">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Update Genre</h5>
+                <!-- Genre Section -->
+                <form asp-action="Update" asp-controller="Genre" method="post">
+                    <input type="hidden" asp-for="GenreID" />
+                    <div class="mb-3">
+                        <label for="genre" class="form-label">Add Genre</label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter genre">
+                        <button type="submit" class="btn btn-primary mt-2">Update Genre</button>
+                        <a asp-action="Index" class="btn btn-primary mt-2">List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @if (@TempData["msg"] is not null)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                @TempData["msg"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+    </div>
+</div>

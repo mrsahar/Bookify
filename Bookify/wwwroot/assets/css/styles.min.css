@@ -201,7 +201,9 @@
     scroll-behavior: smooth;
   }
 }
-
+.left-sidebar .scroll-sidebar { 
+    height: calc(100vh - 72px) !important; 
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

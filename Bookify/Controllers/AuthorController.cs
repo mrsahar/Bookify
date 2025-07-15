@@ -1,31 +1,21 @@
-﻿using Bookify.Models.Entity;
+﻿using Bookify.Repos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookify.Controllers
 {
     public class AuthorController : Controller
     {
+        private readonly IGenresService service;
+
+        public AuthorController(IGenresService service)
+        {
+            this.service = service;
+        }
         public IActionResult Index()
         {
-            return View();
+            var result = service.GetAll();
+            return View(result);
         }
 
-        public IActionResult Add()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Add(Author model)
-        {
-            return View();
-        }
-        public IActionResult Update()
-        {
-            return View();
-        }
-        public IActionResult Delete()
-        {
-            return View();
-        }
     }
 }
