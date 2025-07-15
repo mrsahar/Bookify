@@ -1,6 +1,6 @@
 ﻿using Bookify.Models.Entity;
 
-namespace Bookify.Repos
+namespace Bookify.Repos.interfaces
 {
     public interface IGenresService
     {

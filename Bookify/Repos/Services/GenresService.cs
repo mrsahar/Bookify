@@ -1,7 +1,8 @@
 ﻿using Bookify.Data;
 using Bookify.Models.Entity;
+using Bookify.Repos.interfaces;
 
-namespace Bookify.Repos
+namespace Bookify.Repos.Services
 {
     public class GenresService : IGenresService
     {
@@ -29,7 +30,7 @@ namespace Bookify.Repos
         {
             try
             {
-                var data = this.GetById(id);
+                var data = GetById(id);
                 if (data == null)
                     return false;
                 context.Remove(data);
@@ -41,7 +42,6 @@ namespace Bookify.Repos
                 return false;
             }
         }
-
 
         public Genre GetById(int id)
         {

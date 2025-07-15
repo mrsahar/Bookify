@@ -1,5 +1,5 @@
 ﻿using Bookify.Models.Entity;
-using Bookify.Repos;
+using Bookify.Repos.interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookify.Controllers

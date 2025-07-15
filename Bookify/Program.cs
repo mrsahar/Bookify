@@ -1,5 +1,6 @@
 using Bookify.Data;
-using Bookify.Repos;
+using Bookify.Repos.interfaces;
+using Bookify.Repos.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
