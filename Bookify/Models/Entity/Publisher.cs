@@ -2,7 +2,7 @@
 {
     public class Publisher
     {
-        public int PublisherID { get; set; }
+        public int PublisherId { get; set; }
         public required string PublisherName { get; set; }
 
     }

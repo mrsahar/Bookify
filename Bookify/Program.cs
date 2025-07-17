@@ -12,6 +12,7 @@ builder.Services.AddDbContext<BookifyDbContex>(options => options.UseSqlServer(b
 
 builder.Services.AddScoped<IGenresService, GenresService>();
 builder.Services.AddScoped<IAuthor, AuthorService>();
+builder.Services.AddScoped<IPublisher, PublisherService>();
 
 var app = builder.Build();
 

@@ -1,0 +1,24 @@
+﻿@model Bookify.Models.Entity.Publisher
+@{
+    ViewData["Title"] = "Add Publisher";
+}
+<div class="body-wrapper-inner">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold mb-4">Publisher</h5>
+                <!-- Publisher Section -->
+                <form asp-action="Add" asp-controller="Publisher" method="post">
+                    <div class="mb-3">
+                        <label for="Publisher" class="form-label">Add Publisher</label>
+                        <input asp-for="PublisherName" class="form-control" id="Publisher" placeholder="Enter Publisher">
+                        <button type="submit" class="btn btn-primary mt-2">Add Publisher</button>
+                        <a asp-action="Index" class="btn btn-primary mt-2">List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
