@@ -6,18 +6,18 @@ namespace Bookify.Repos.Services
 {
     public class AuthorService : IAuthor
     {
-        private readonly BookifyDbContex contex;
+        private readonly BookifyDbContex context;
 
-        public AuthorService(BookifyDbContex contex)
+        public AuthorService(BookifyDbContex context)
         {
-            this.contex = contex;
+            this.context = context;
         }
         public bool Add(Author author)
         {
             try
             {
-                contex.Add(author);
-                contex.SaveChanges();
+                context.Add(author);
+                context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -35,8 +35,8 @@ namespace Bookify.Repos.Services
                 {
                     return false;
                 }
-                contex.Remove(data);
-                contex.SaveChanges(); return true;
+                context.Remove(data);
+                context.SaveChanges(); return true;
             }
             catch (Exception ex)
             {
@@ -47,20 +47,20 @@ namespace Bookify.Repos.Services
 
         public IEnumerable<Author> GetAll()
         {
-            return contex.Authors.ToList();
+            return context.Authors.ToList();
         }
 
         public Author GetById(int id)
         {
-            return contex.Authors.Find(id);
+            return context.Authors.Find(id);
         }
 
         public bool Update(Author author)
         {
             try
             {
-                contex.Update(author);
-                contex.SaveChanges(); return true;
+                context.Update(author);
+                context.SaveChanges(); return true;
             }
             catch (Exception ex)
             {

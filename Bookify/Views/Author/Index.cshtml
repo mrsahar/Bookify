@@ -1,6 +1,6 @@
-﻿@model Bookify.Models.Entity.Genre
+﻿@model List<Bookify.Models.Entity.Author>
 @{
-    ViewData["Title"] = "Genre";
+    ViewData["Title"] = "Author";
 }
 
 <!--  Header End -->
@@ -8,214 +8,44 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4">Genre</h5>
-                @* <table class="table text-nowrap mb-0 align-middle"> *@
-                    <thead class="text-dark fs-4">
+                <h5 class="card-title fw-semibold mb-4">Author</h5>
+                <div class="mb-3">
+                    <a asp-for="Author" asp-action="Add" class="btn btn-primary mt-2">
+                        <i class="ti ti-mood-smile"></i> Add Author
+                    </a>
+                </div>
+                <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="table-dark">
                         <tr>
-                            <th>
-                                <h6 class="fs-4 fw-semibold mb-0">Authors</h6>
-                            </th>
-                            <th>
-                                <h6 class="fs-4 fw-semibold mb-0">Courses</h6>
-                            </th>
-                            <th>
-                                <h6 class="fs-4 fw-semibold mb-0">Users</h6>
-                            </th>
-                            <th></th>
+                            <th>Name</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="../assets/images/blog/blog-img1.jpg" class="rounded-2" width="42" height="42">
-                                    <div class="ms-3">
-                                        <h6 class="fw-semibold mb-1">Top Authors</h6>
-                                        <span class="fw-normal">Successful Fellas</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-danger-subtle text-danger">Angular</span>
-                                    <span class="badge bg-primary-subtle text-primary">PHP</span>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="mb-0 fw-normal">4300 Users</p>
-                            </td>
-                            <td>
-                                <div class="dropdown dropstart">
-                                    <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ti ti-dots fs-5"></i>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@item.AuthorName</td>
+                                <td class="text-center">
+                                    <a asp-action="Update" asp-route-id="@item.AuthorId" class="btn btn-sm btn-primary me-1">
+                                        <i class="ti ti-edit"></i>
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-plus"></i>Add</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="../assets/images/blog/blog-img2.jpg" class="rounded-2" width="42" height="42">
-                                    <div class="ms-3">
-                                        <h6 class="fw-semibold mb-1">Popular Authors</h6>
-                                        <span class="fw-normal">Most Successful</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-primary-subtle text-primary">Bootstrap</span>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="mb-0 fw-normal">1200 Users</p>
-                            </td>
-                            <td>
-                                <div class="dropdown dropstart">
-                                    <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ti ti-dots fs-5"></i>
+                                    <a asp-action="Delete" class="btn btn-sm btn-danger" asp-route-id="@item.AuthorId">
+                                        <i class="ti ti-trash-x"></i>
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-plus"></i>Add</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="../assets/images/blog/blog-img3.jpg" class="rounded-2" width="42" height="42">
-                                    <div class="ms-3">
-                                        <h6 class="fw-semibold mb-1">New Users</h6>
-                                        <span class="fw-normal">Awesome Users</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-success-subtle text-success">Reactjs</span>
-                                    <span class="badge bg-danger-subtle text-danger">Angular</span>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="mb-0 fw-normal">2000 Users</p>
-                            </td>
-                            <td>
-                                <div class="dropdown dropstart">
-                                    <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ti ti-dots fs-5"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-plus"></i>Add</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="../assets/images/blog/blog-img4.jpg" class="rounded-2" width="42" height="42">
-                                    <div class="ms-3">
-                                        <h6 class="fw-semibold mb-1">Active Customers</h6>
-                                        <span class="fw-normal">Best Customers</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-primary-subtle text-primary">Bootstrap</span>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="mb-0 fw-normal">1500 Users</p>
-                            </td>
-                            <td>
-                                <div class="dropdown dropstart">
-                                    <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ti ti-dots fs-5"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-plus"></i>Add</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="../assets/images/blog/blog-img5.jpg" class="rounded-2" width="42" height="42">
-                                    <div class="ms-3">
-                                        <h6 class="fw-semibold mb-1">Bestseller Theme</h6>
-                                        <span class="fw-normal">Amazing Templates</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-danger-subtle text-danger">Angular</span>
-                                    <span class="badge bg-success-subtle text-success">Reactjs</span>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="mb-0 fw-normal">9500 Users</p>
-                            </td>
-                            <td>
-                                <div class="dropdown dropstart">
-                                    <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ti ti-dots fs-5"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-plus"></i>Add</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-edit"></i>Edit</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-trash"></i>Delete</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
                 </table>
             </div>
         </div>
+        @if (@TempData["msg"] is not null)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                @TempData["msg"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
     </div>
 </div>
