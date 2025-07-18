@@ -1,0 +1,76 @@
+﻿@model Bookify.Models.Entity.Book
+
+@{
+    ViewData["Title"] = !string.IsNullOrEmpty(Model.Title) ? $"{Model.Title} Edit" : "Edit Author";
+} 
+<div class="body-wrapper-inner">
+    <div class="container-fluid">
+         
+                <!-- Book Section -->
+                <form asp-action="Update" asp-controller="Book" method="post">
+            <div class="card">
+                <div class="px-4 py-3 border-bottom">
+                    <h4 class="card-title mb-0">Book Details</h4>
+                </div>
+                <div class="card-body p-4 border-bottom"> 
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <label asp-for="Title" class="form-label">Book Title</label>
+                                <input asp-for="Title" class="form-control" id="Book" placeholder="Enter Book">
+                                
+                            </div>
+                            <div>
+                                <label asp-for="TotalPages" class="form-label">Total Pages</label>
+                                <input asp-for="TotalPages" class="form-control" id="Book" placeholder="Enter Total Pages">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <label asp-for="Isbn" class="form-label">Isbn</label>
+                                <div class="input-group">
+                                    <input asp-for="Isbn" class="form-control" id="Book" placeholder="Enter Isbn">
+                                    
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fs-4 fw-semibold mb-4">Personal Info</h5>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <label for="GenreID" class="form-label">Genre</label>
+                                <select asp-for="GenreID" asp-items="Model.GenreList" class="form-select">
+                                    <option selected="">Select Genre</option> 
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="PublisherID" class="form-label">Publisher</label>
+                                <select asp-for="PublisherID" asp-items="Model.PublisherList" class="form-select">
+                                    <option selected="">Select Publisher</option> 
+                                </select>
+                            </div>
+                        </div><div class="col-lg-6">
+                            <div class="mb-4">
+                                <label for="AuthorId" class="form-label">Author</label>
+                                <select asp-for="AuthorId" asp-items="Model.AutherList" class="form-select">
+                                    <option selected="">Select Author</option> 
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="col-12">
+                            <div class="d-flex align-items-center gap-3">
+                                <button type="submit" class="btn btn-primary mt-2">Add Book</button>
+                                <a asp-action="Index" class="btn bg-danger-subtle text-danger mt-2">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+                </form>
+ 
+    </div>
+</div>
